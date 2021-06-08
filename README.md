@@ -1,2 +1,2 @@
-# sypter
-Sign and encrypt
+# Sypter
+Sign and encrypt.
