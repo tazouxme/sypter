@@ -32,7 +32,7 @@ public class SypterTest {
 		entity.setText("TEXT");
 		
 		try {
-			Sypter<TestSypterEntity> sypter = new Sypter<TestSypterEntity>(keyStoreManager, certificateManager);
+			Sypter<TestSypterEntity> sypter = new Sypter<>(keyStoreManager, certificateManager);
 			
 			Syptered encryptedEntity = sypter.sypt(entity);
 			TestSypterEntity decryptedEntity = sypter.unsypt(encryptedEntity, (object) -> TestSypterEntity.class);
@@ -52,7 +52,7 @@ public class SypterTest {
 		entity.setText("TEXT");
 		
 		try {
-			Sypter<TestSypterEntity> sypter = new Sypter<TestSypterEntity>(keyStoreManager, certificateManager);
+			Sypter<TestSypterEntity> sypter = new Sypter<>(keyStoreManager, certificateManager);
 			
 			assertThrows(SypterSecurityException.class, () -> { sypter.sypt(entity); });
 		} catch (GeneralSecurityException e) {
@@ -70,7 +70,7 @@ public class SypterTest {
 		entity.setText("TEXT");
 		
 		try {
-			Sypter<TestSypterEntity> sypter = new Sypter<TestSypterEntity>(keyStoreManager, certificateManager);
+			Sypter<TestSypterEntity> sypter = new Sypter<>(keyStoreManager, certificateManager);
 			
 			assertThrows(SypterSecurityException.class, () -> { sypter.sypt(entity); });
 		} catch (GeneralSecurityException e) {
@@ -88,7 +88,7 @@ public class SypterTest {
 		entity.setText("TEXT");
 		
 		try {
-			Sypter<TestSypterEntity> sypter = new Sypter<TestSypterEntity>(keyStoreManager, certificateManager);
+			Sypter<TestSypterEntity> sypter = new Sypter<>(keyStoreManager, certificateManager);
 			
 			assertThrows(SypterSecurityException.class, () -> { sypter.sypt(entity); });
 		} catch (GeneralSecurityException e) {
@@ -106,7 +106,7 @@ public class SypterTest {
 		entity.setText("TEXT");
 		
 		try {
-			Sypter<TestSypterEntity> sypter = new Sypter<TestSypterEntity>(keyStoreManager, certificateManager);
+			Sypter<TestSypterEntity> sypter = new Sypter<>(keyStoreManager, certificateManager);
 			
 			assertThrows(SypterSecurityException.class, () -> { sypter.sypt(entity); });
 		} catch (GeneralSecurityException e) {

@@ -53,7 +53,7 @@ public abstract class AbstractSypter<T> implements ISypter<T> {
 	}
 
 	@Override
-	public <W extends T> T unsypt(Syptered syptered, Function<String, Class<W>> determinator) throws SypterSecurityException {
+	public T unsypt(Syptered syptered, Function<String, Class<T>> determinator) throws SypterSecurityException {
 		if (syptered == null || StringUtils.isBlank(syptered.getObject()) || StringUtils.isBlank(syptered.getSignature())) {
 			throw new SypterSecurityException("Syptered data cannot be empty");
 		}
@@ -81,7 +81,7 @@ public abstract class AbstractSypter<T> implements ISypter<T> {
 		}
 	}
 	
-	private <W extends T> T decrypt(String json, Function<String, Class<W>> determinator) throws SypterSecurityException {
+	private T decrypt(String json, Function<String, Class<T>> determinator) throws SypterSecurityException {
 		AsymmetricSypterObject object = fromJSON(json, AsymmetricSypterObject.class);
 		
 		try {
