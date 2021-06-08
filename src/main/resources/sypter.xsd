@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+	targetNamespace="https://www.agred.io/schema/sypter" 
+	xmlns="https://www.agred.io/schema/sypter" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:attributeGroup name="sypter.attlist">
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+           		<xs:documentation>Unique identifier of the bean.</xs:documentation>
+        	</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="certificate" type="xs:string" use="optional">
+			<xs:annotation>
+           		<xs:documentation>Public certificate used to retrieve the PublicKey for encryption.</xs:documentation>
+        	</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="keystore" type="xs:string" use="optional">
+			<xs:annotation>
+           		<xs:documentation>Path to the Keystore.</xs:documentation>
+        	</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="keystore-password" type="xs:string" use="optional">
+			<xs:annotation>
+           		<xs:documentation>Password of the Keystore.</xs:documentation>
+        	</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="key-alias" type="xs:string" use="optional">
+			<xs:annotation>
+           		<xs:documentation>Alias of the related Key.</xs:documentation>
+        	</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="key-password" type="xs:string" use="optional">
+			<xs:annotation>
+           		<xs:documentation>Password of the related Key for the defined Alias.</xs:documentation>
+        	</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	
+	<xs:element name="sypter" type="sypterElement" />
+
+	<xs:complexType name="sypterElement">
+		<xs:annotation>
+      		<xs:documentation>Creates a Sypter based on its KeystoreManager and CertificateManager.</xs:documentation>
+   		</xs:annotation>
+		<xs:attributeGroup ref="sypter.attlist" />
+	</xs:complexType>
+	
+</xs:schema>
